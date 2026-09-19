@@ -96,14 +96,15 @@
                 </div>
             </div>
 
-            <!-- Contact Card -->
+            <!-- Contact & Delivery Card -->
             <div class="flex items-start space-x-4 p-4 rounded-2xl bg-white/80 border border-emerald-100 shadow-sm">
                 <div class="bg-teal-500 text-white p-3.5 rounded-xl shadow-md">
                     📞
                 </div>
                 <div>
-                    <h3 class="font-bold text-gray-800 text-base">Customer Helpline</h3>
+                    <h3 class="font-bold text-gray-800 text-base">Customer Helpline & Delivery</h3>
                     <p class="text-emerald-700 text-sm md:text-base font-extrabold mt-0.5 tracking-wide">0300 7532789</p>
+                    <p class="text-xs text-gray-500 mt-0.5">Home Delivery aur Orders ke liye rabta karein.</p>
                 </div>
             </div>
 
@@ -118,11 +119,11 @@
                         <ul class="space-y-1.5">
                             <li class="flex justify-between border-b border-gray-200 pb-1">
                                 <span class="font-medium text-gray-700">Saturday – Thursday:</span>
-                                <span class="font-bold text-gray-900">8:00 AM – 10:00 PM</span>
+                                <span class="font-bold text-gray-900">9:00 AM – 9:00 PM</span>
                             </li>
                             <li class="flex justify-between pt-1">
                                 <span class="font-medium text-gray-700">Friday Break:</span>
-                                <span class="font-bold text-gray-900">8:00 AM – 1:00 PM & 3:00 PM – 10:00 PM</span>
+                                <span class="font-bold text-gray-900">9:00 AM – (break time 1:00 PM & 3:00 PM) – 3:00PM 9:00 PM</span>
                             </li>
                         </ul>
                     </div>
@@ -140,6 +141,10 @@
                     <!-- Grocery Items Button -->
                     <button onclick="openModal()" class="bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white p-3.5 rounded-xl text-xs md:text-sm font-bold flex items-center justify-center space-x-2 transition shadow-md cursor-pointer w-full">
                         <span>🛍️</span> <span>Grocery & Items</span>
+                    </button>
+                    <!-- Online Store Products Button (No Hint) -->
+                    <button onclick="openProductModal()" class="bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-700 hover:to-blue-700 text-white p-3.5 rounded-xl text-xs md:text-sm font-bold flex items-center justify-center space-x-2 transition shadow-md cursor-pointer w-full col-span-2">
+                        <span>📦</span> <span>Online Store Products</span>
                     </button>
                     <div class="bg-emerald-50/80 p-3.5 rounded-xl text-xs md:text-sm text-emerald-900 font-semibold flex items-center space-x-2 border border-emerald-200 shadow-sm">
                         <span>♿</span> <span>Wheelchair Accessible</span>
@@ -175,11 +180,38 @@
                 </form>
             </div>
 
+            <!-- Duplicate Feedback Section ("For More Info" - Phone Optional) -->
+            <div class="p-5 rounded-2xl bg-white/80 border border-teal-200 shadow-sm space-y-3">
+                <div class="flex items-center space-x-3">
+                    <div class="bg-teal-600 text-white p-3 rounded-xl shadow-md text-base">
+                        ℹ️
+                    </div>
+                    <div>
+                        <h3 class="font-extrabold text-gray-800 text-base">For More Info</h3>
+                        <p class="text-gray-500 text-xs mt-0.5">Mazeed maloomat ya message ke liye yahan rabta karein.</p>
+                    </div>
+                </div>
+                <form action="https://formspree.io/f/mkjgongn" method="POST" class="space-y-3">
+                    <div>
+                        <input type="text" name="info_name" required class="w-full px-3 py-2 text-xs md:text-sm rounded-xl border border-gray-300 focus:outline-none focus:border-teal-500" placeholder="Aap ka Naam...">
+                    </div>
+                    <div>
+                        <input type="text" name="info_phone" class="w-full px-3 py-2 text-xs md:text-sm rounded-xl border border-gray-300 focus:outline-none focus:border-teal-500" placeholder="Aap ka Phone Number (Optional)...">
+                    </div>
+                    <div>
+                        <textarea name="info_message" rows="3" required class="w-full px-3 py-2 text-xs md:text-sm rounded-xl border border-gray-300 focus:outline-none focus:border-teal-500" placeholder="Apna sawal ya message yahan likhein..."></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-teal-600 hover:bg-teal-700 text-white font-bold py-2.5 rounded-xl text-xs transition shadow-md flex items-center justify-center space-x-2 cursor-pointer">
+                        <span>📨 Message Bhejein</span>
+                    </button>
+                </form>
+            </div>
+
         </div>
 
         <!-- Footer -->
         <div class="bg-gray-100/80 px-6 py-4 text-center border-t border-gray-200 text-xs text-gray-500 font-medium">
-            Utility Bachat Bazar Multan • Built for Smart Shopping
+            Utility Bachat Bazar Multan • Helpline: 0300 7532789
         </div>
     </div>
 
@@ -244,6 +276,50 @@
         </div>
     </div>
 
+    <!-- Modal for Online Store Products (No Hint on Add Button) -->
+    <div id="productModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm hidden flex items-center justify-center p-4 z-50">
+        <div class="bg-white rounded-3xl max-w-lg w-full max-h-[85vh] overflow-y-auto shadow-2xl p-6 relative border border-gray-100">
+            <div class="flex justify-between items-center mb-4 border-b pb-3 sticky top-0 bg-white z-10">
+                <h2 class="text-xl font-extrabold text-cyan-800">📦 Online Store Products</h2>
+                <button onclick="closeProductModal()" class="text-gray-400 hover:text-gray-700 text-3xl font-bold leading-none">&times;</button>
+            </div>
+
+            <!-- Add Product Form (Protected by Password 1122) -->
+            <div id="addProductSection" class="hidden mb-6 p-4 bg-cyan-50 rounded-2xl border border-cyan-200 space-y-3">
+                <h3 class="font-bold text-cyan-900 text-sm">➕ Add New Product (Admin Only)</h3>
+                <div>
+                    <input type="text" id="prodName" placeholder="Product Name..." class="w-full px-3 py-2 text-xs rounded-lg border border-gray-300">
+                </div>
+                <div>
+                    <input type="text" id="prodPrice" placeholder="Price (e.g. Rs 500)..." class="w-full px-3 py-2 text-xs rounded-lg border border-gray-300">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-gray-600 mb-1">Upload Product Picture:</label>
+                    <input type="file" id="prodImage" accept="image/*" class="w-full text-xs text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-xs file:font-semibold file:bg-cyan-600 file:text-white hover:file:bg-cyan-700">
+                </div>
+                <button onclick="addNewProduct()" class="w-full bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-2 rounded-xl text-xs transition shadow">Add Product to Store</button>
+            </div>
+
+            <!-- Products Display Grid -->
+            <div id="productsGrid" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <!-- Default Sample Product -->
+                <div class="bg-white p-3 rounded-2xl border border-gray-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <img src="https://via.placeholder.com/300x200?text=Bachat+Bazar+Product" alt="Sample Product" class="w-full h-32 object-cover rounded-xl mb-2">
+                        <h4 class="font-bold text-gray-800 text-sm">Special Cooking Oil</h4>
+                        <p class="text-emerald-700 font-bold text-xs mt-1">Rs 2,450</p>
+                    </div>
+                    <a href="tel:03007532789" class="mt-3 block text-center bg-emerald-600 hover:bg-emerald-700 text-white py-1.5 rounded-lg text-xs font-bold transition">Order Now (Call)</a>
+                </div>
+            </div>
+
+            <div class="mt-6 flex justify-between items-center sticky bottom-0 bg-white py-3 border-t">
+                <button onclick="promptProductPassword()" class="bg-cyan-600 hover:bg-cyan-700 text-white px-4 py-2 rounded-xl text-xs font-bold transition shadow">🔐 Add Product</button>
+                <button onclick="closeProductModal()" class="bg-gray-200 hover:bg-gray-300 text-gray-700 px-5 py-2 rounded-xl text-xs font-bold transition">Close</button>
+            </div>
+        </div>
+    </div>
+
     <script>
         let wrongAttempts = 0;
         let lockUntil = 0;
@@ -255,6 +331,9 @@
             }
             if(localStorage.getItem('savedTiming')) {
                 document.getElementById('timingContent').innerHTML = localStorage.getItem('savedTiming');
+            }
+            if(localStorage.getItem('savedProducts')) {
+                document.getElementById('productsGrid').innerHTML = localStorage.getItem('savedProducts');
             }
         };
 
@@ -276,10 +355,87 @@
             document.getElementById('groceryModal').classList.add('hidden');
         }
 
+        function openProductModal() {
+            document.getElementById('productModal').classList.remove('hidden');
+        }
+
+        function closeProductModal() {
+            document.getElementById('productModal').classList.add('hidden');
+            document.getElementById('addProductSection').classList.add('hidden');
+        }
+
+        function promptProductPassword() {
+            if (checkLock()) return;
+
+            let pass = prompt("Enter Password to Add Product:");
+            if (pass === "1122") {
+                wrongAttempts = 0;
+                document.getElementById('addProductSection').classList.remove('hidden');
+                alert("Access Granted! Fill the product details and picture below.");
+            } else if (pass !== null) {
+                wrongAttempts++;
+                if (wrongAttempts >= 3) {
+                    lockUntil = new Date().getTime() + 60000;
+                    wrongAttempts = 0;
+                    alert("Incorrect password 3 times! System is locked for 1 minute.");
+                } else {
+                    alert("Incorrect Password! Attempts left: " + (3 - wrongAttempts));
+                }
+            }
+        }
+
+        function addNewProduct() {
+            let name = document.getElementById('prodName').value;
+            let price = document.getElementById('prodPrice').value;
+            let imageInput = document.getElementById('prodImage');
+
+            if (!name || !price) {
+                alert("Please enter both product name and price!");
+                return;
+            }
+
+            if (imageInput.files && imageInput.files[0]) {
+                let reader = new FileReader();
+                reader.onload = function(e) {
+                    let imgSrc = e.target.result;
+                    appendProductCard(name, price, imgSrc);
+                }
+                reader.readAsDataURL(imageInput.files[0]);
+            } else {
+                // Default image if none uploaded
+                appendProductCard(name, price, "https://via.placeholder.com/300x200?text=Bachat+Bazar");
+            }
+        }
+
+        function appendProductCard(name, price, imgSrc) {
+            let grid = document.getElementById('productsGrid');
+            let productHtml = `
+                <div class="bg-white p-3 rounded-2xl border border-gray-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <img src="${imgSrc}" alt="${name}" class="w-full h-32 object-cover rounded-xl mb-2">
+                        <h4 class="font-bold text-gray-800 text-sm">${name}</h4>
+                        <p class="text-emerald-700 font-bold text-xs mt-1">${price}</p>
+                    </div>
+                    <a href="tel:03007532789" class="mt-3 block text-center bg-emerald-600 hover:bg-emerald-700 text-white py-1.5 rounded-lg text-xs font-bold transition">Order Now (Call)</a>
+                </div>
+            `;
+            grid.insertAdjacentHTML('afterbegin', productHtml);
+            
+            // Save to LocalStorage
+            localStorage.setItem('savedProducts', grid.innerHTML);
+
+            // Clear inputs
+            document.getElementById('prodName').value = '';
+            document.getElementById('prodPrice').value = '';
+            document.getElementById('prodImage').value = '';
+            document.getElementById('addProductSection').classList.add('hidden');
+            alert("Product successfully added to Online Store!");
+        }
+
         function requestEdit() {
             if (checkLock()) return;
 
-            let pass = prompt("Enter Password to Edit:");
+            let pass = prompt("Enter Password to Edit Inventory:");
             if (pass === "1122") {
                 wrongAttempts = 0;
                 openModal();
@@ -292,7 +448,7 @@
             } else if (pass !== null) {
                 wrongAttempts++;
                 if (wrongAttempts >= 3) {
-                    lockUntil = new Date().getTime() + 60000; // 1 minute lock
+                    lockUntil = new Date().getTime() + 60000;
                     wrongAttempts = 0;
                     alert("Incorrect password 3 times! System is locked for 1 minute.");
                 } else {
@@ -331,7 +487,6 @@
             contentBox.classList.remove("border-2", "border-dashed", "border-blue-500", "p-2");
             document.getElementById('saveEditBtn').classList.add('hidden');
             
-            // Save to LocalStorage
             localStorage.setItem('savedGroceryItems', contentBox.innerHTML);
             alert("Changes saved permanently!");
         }
@@ -342,7 +497,6 @@
             timingBox.classList.remove("border-2", "border-dashed", "border-blue-500", "p-2");
             document.getElementById('saveTimingBtn').classList.add('hidden');
             
-            // Save to LocalStorage
             localStorage.setItem('savedTiming', timingBox.innerHTML);
             alert("Timing saved permanently!");
         }
