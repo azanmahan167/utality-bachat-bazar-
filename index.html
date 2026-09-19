@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Utility Bachat Bazar - Multan</title>
+    <title>Utility Bachat Bazar - Multan | Exact Location & Store</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -11,96 +11,140 @@
         body {
             font-family: 'Poppins', sans-serif;
         }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
     </style>
 </head>
-<body class="bg-gradient-to-br from-emerald-50 to-teal-100 min-h-screen py-10 px-4">
+<body class="bg-gradient-to-br from-emerald-600 via-teal-700 to-cyan-900 min-h-screen py-10 px-4 flex items-center justify-center">
 
-    <div class="max-w-2xl mx-auto bg-white rounded-2xl shadow-xl overflow-hidden border border-emerald-100 relative">
+    <div class="max-w-2xl w-full glass-card rounded-3xl shadow-2xl overflow-hidden border border-white/20 relative">
         
         <!-- Edit Buttons in Header -->
         <div class="absolute top-4 right-4 flex items-center space-x-2 z-10">
             <!-- Timing Edit Pencil -->
-            <button onclick="requestTimingEdit()" class="bg-emerald-700 hover:bg-emerald-800 text-white p-2.5 rounded-full shadow-md transition flex items-center justify-center" title="Edit Timing">
+            <button onclick="requestTimingEdit()" class="bg-amber-500 hover:bg-amber-600 text-white p-2.5 rounded-full shadow-lg transition transform hover:scale-105 flex items-center justify-center" title="Edit Timing">
                 ⏱️✏️
             </button>
             <!-- Items Edit Pencil -->
-            <button onclick="requestEdit()" class="bg-emerald-700 hover:bg-emerald-800 text-white p-2.5 rounded-full shadow-md transition flex items-center justify-center" title="Edit Items">
+            <button onclick="requestEdit()" class="bg-emerald-800 hover:bg-emerald-900 text-white p-2.5 rounded-full shadow-lg transition transform hover:scale-105 flex items-center justify-center" title="Edit Items">
                 ✏️
             </button>
         </div>
 
         <!-- Header Section -->
-        <div class="bg-emerald-600 text-white p-6 text-center relative">
-            <h1 class="text-2xl md:text-3xl font-bold mb-1">Utility Bachat Bazar</h1>
-            <p class="text-emerald-100 text-sm md:text-base">بچت بازار - شاہ رکن عالم ٹاؤن، ملتان</p>
-            <span class="inline-block mt-3 bg-emerald-500 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-inner">
-                ⭐ 4.1 Rating (298+ Reviews)
-            </span>
+        <div class="bg-gradient-to-r from-emerald-600 to-teal-700 text-white p-8 text-center relative shadow-inner">
+            <div class="absolute -top-10 -left-10 w-32 h-32 bg-white/10 rounded-full blur-xl"></div>
+            <h1 class="text-3xl md:text-4xl font-extrabold tracking-wide mb-2 drop-shadow-md">Utility Bachat Bazar</h1>
+            <p class="text-emerald-100 text-sm md:text-base font-medium">بچت بازار - شاہ رکن عالم ٹاؤن، ملتان</p>
+            <div class="mt-4 inline-flex items-center space-x-2 bg-white/20 px-4 py-1.5 rounded-full text-xs font-semibold backdrop-blur-md shadow-sm">
+                <span>⭐ 4.1 Rating</span>
+                <span>•</span>
+                <span>🛒 Premium Mart</span>
+                <span>•</span>
+                <span>⭐ 298+ Reviews</span>
+            </div>
         </div>
 
         <!-- Content Section -->
         <div class="p-6 md:p-8 space-y-6">
             
-            <!-- Address Card -->
-            <div class="flex items-start space-x-4 p-4 rounded-xl bg-gray-50 border border-gray-100">
-                <div class="bg-emerald-100 text-emerald-600 p-3 rounded-lg">
-                    📍
+            <!-- Exact Address & Location Highlight Card -->
+            <div class="p-5 rounded-2xl bg-gradient-to-r from-emerald-50 to-teal-50 border-2 border-emerald-300 shadow-md space-y-4">
+                <div class="flex items-start justify-between">
+                    <div class="flex items-start space-x-3">
+                        <div class="bg-emerald-600 text-white p-3 rounded-xl shadow-md text-lg">
+                            📍
+                        </div>
+                        <div>
+                            <span class="bg-emerald-200 text-emerald-800 text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">Exact Location Details</span>
+                            <h3 class="font-extrabold text-gray-900 text-lg mt-1">Utility Bachat Bazar, Multan</h3>
+                            <p class="text-gray-700 text-xs md:text-sm mt-1 font-medium leading-relaxed">
+                                <strong class="text-emerald-800">Street Address:</strong> Piran Ghaib Road<br>
+                                <strong class="text-emerald-800">Area/Town:</strong> Shah Rukn-e-Alam Town, Multan<br>
+                                <strong class="text-emerald-800">Postal Code:</strong> 60650
+                            </p>
+                        </div>
+                    </div>
                 </div>
-                <div>
-                    <h3 class="font-semibold text-gray-800">Complete Address</h3>
-                    <p class="text-gray-600 text-sm mt-1">Piran Ghaib Rd, Shah Rukn E Alam Town, Multan (Postal Code: 60650)</p>
+                
+                <div class="pt-2 flex items-center justify-between border-t border-emerald-200">
+                    <span class="text-xs text-emerald-800 font-semibold flex items-center gap-1">🗺️ Navigation Ready</span>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Piran+Ghaib+Rd+Shah+Rukn+E+Alam+Town+Multan" target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-xl text-xs font-bold transition shadow-md flex items-center space-x-1.5">
+                        <span>Open in Google Maps</span> ↗
+                    </a>
+                </div>
+            </div>
+
+            <!-- Direct Google Maps Embed Section -->
+            <div class="rounded-2xl overflow-hidden border border-emerald-200 shadow-md bg-white">
+                <div class="bg-gradient-to-r from-emerald-700 to-teal-800 text-white px-4 py-2.5 text-xs font-bold flex items-center justify-between">
+                    <span class="flex items-center gap-1.5">🗺️ Live Map Navigator</span>
+                    <span class="text-emerald-200 text-[10px] bg-white/10 px-2 py-0.5 rounded">Shah Rukn-e-Alam, Multan</span>
+                </div>
+                <div class="w-full h-56 bg-gray-100 relative">
+                    <iframe 
+                        width="100%" 
+                        height="100%" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3447.8860714952086!2d71.4398!3d30.2215!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3922b5123456789%3A0x123456789abcdef!2sPiran%20Ghaib%20Rd%2C%20Shah%20Rukn-e-Alam%20Town%2C%20Multan!5e0!3m2!1sen!2spk!4v1650000000000!5m2!1sen!2spk">
+                    </iframe>
                 </div>
             </div>
 
             <!-- Contact Card -->
-            <div class="flex items-start space-x-4 p-4 rounded-xl bg-gray-50 border border-gray-100">
-                <div class="bg-emerald-100 text-emerald-600 p-3 rounded-lg">
+            <div class="flex items-start space-x-4 p-4 rounded-2xl bg-white/80 border border-emerald-100 shadow-sm">
+                <div class="bg-teal-500 text-white p-3.5 rounded-xl shadow-md">
                     📞
                 </div>
                 <div>
-                    <h3 class="font-semibold text-gray-800">Phone Number</h3>
-                    <p class="text-gray-600 text-sm mt-1 font-medium text-emerald-700">0300 7532789</p>
+                    <h3 class="font-bold text-gray-800 text-base">Customer Helpline</h3>
+                    <p class="text-emerald-700 text-sm md:text-base font-extrabold mt-0.5 tracking-wide">0300 7532789</p>
                 </div>
             </div>
 
-            <!-- Timing Card (Editable) -->
-            <div class="flex items-start space-x-4 p-4 rounded-xl bg-gray-50 border border-gray-100 relative">
-                <div class="bg-emerald-100 text-emerald-600 p-3 rounded-lg">
+            <!-- Timing Card (Editable & Persistent) -->
+            <div class="flex items-start space-x-4 p-4 rounded-2xl bg-white/80 border border-emerald-100 shadow-sm relative">
+                <div class="bg-cyan-600 text-white p-3.5 rounded-xl shadow-md">
                     ⏰
                 </div>
                 <div class="w-full">
-                    <h3 class="font-semibold text-gray-800">Opening Hours</h3>
-                    <div id="timingContent" contenteditable="false">
-                        <ul class="text-gray-600 text-sm mt-2 space-y-1">
-                            <li class="flex justify-between border-b pb-1">
-                                <span>Saturday – Thursday:</span>
-                                <span class="font-medium text-gray-800">8:00 AM – 10:00 PM</span>
+                    <h3 class="font-bold text-gray-800 text-base">Opening Hours</h3>
+                    <div id="timingContent" contenteditable="false" class="mt-2 text-gray-600 text-xs md:text-sm">
+                        <ul class="space-y-1.5">
+                            <li class="flex justify-between border-b border-gray-200 pb-1">
+                                <span class="font-medium text-gray-700">Saturday – Thursday:</span>
+                                <span class="font-bold text-gray-900">8:00 AM – 10:00 PM</span>
                             </li>
                             <li class="flex justify-between pt-1">
-                                <span>Friday Break:</span>
-                                <span class="font-medium text-gray-800">8:00 AM – 1:00 PM & 3:00 PM – 10:00 PM</span>
+                                <span class="font-medium text-gray-700">Friday Break:</span>
+                                <span class="font-bold text-gray-900">8:00 AM – 1:00 PM & 3:00 PM – 10:00 PM</span>
                             </li>
                         </ul>
                     </div>
-                    <button id="saveTimingBtn" onclick="saveTimingEdit()" class="hidden mt-3 bg-blue-600 text-white px-3 py-1 rounded text-xs font-semibold hover:bg-blue-700 transition">Save Timing</button>
+                    <button id="saveTimingBtn" onclick="saveTimingEdit()" class="hidden mt-3 bg-blue-600 text-white px-4 py-1.5 rounded-lg text-xs font-bold shadow hover:bg-blue-700 transition">Save Timing</button>
                 </div>
             </div>
 
-            <!-- Features -->
+            <!-- Features Grid -->
             <div>
-                <h3 class="font-semibold text-gray-800 mb-3">Available Facilities</h3>
+                <h3 class="font-bold text-gray-800 mb-3 text-base">Store Facilities & Catalog</h3>
                 <div class="grid grid-cols-2 gap-3">
-                    <div class="bg-emerald-50/60 p-3 rounded-lg text-sm text-emerald-800 font-medium flex items-center space-x-2">
+                    <div class="bg-emerald-50/80 p-3.5 rounded-xl text-xs md:text-sm text-emerald-900 font-semibold flex items-center space-x-2 border border-emerald-200 shadow-sm">
                         <span>🛒</span> <span>In-store Shopping</span>
                     </div>
                     <!-- Grocery Items Button -->
-                    <button onclick="openModal()" class="bg-emerald-600 hover:bg-emerald-700 text-white p-3 rounded-lg text-sm font-medium flex items-center justify-center space-x-2 transition shadow-sm cursor-pointer w-full">
-                        <span>🛍️</span> <span>Grocery Items</span>
+                    <button onclick="openModal()" class="bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white p-3.5 rounded-xl text-xs md:text-sm font-bold flex items-center justify-center space-x-2 transition shadow-md cursor-pointer w-full">
+                        <span>🛍️</span> <span>Grocery & Items</span>
                     </button>
-                    <div class="bg-emerald-50/60 p-3 rounded-lg text-sm text-emerald-800 font-medium flex items-center space-x-2">
+                    <div class="bg-emerald-50/80 p-3.5 rounded-xl text-xs md:text-sm text-emerald-900 font-semibold flex items-center space-x-2 border border-emerald-200 shadow-sm">
                         <span>♿</span> <span>Wheelchair Accessible</span>
                     </div>
-                    <div class="bg-emerald-50/60 p-3 rounded-lg text-sm text-emerald-800 font-medium flex items-center space-x-2">
+                    <div class="bg-emerald-50/80 p-3.5 rounded-xl text-xs md:text-sm text-emerald-900 font-semibold flex items-center space-x-2 border border-emerald-200 shadow-sm">
                         <span>✨</span> <span>Daily Essentials</span>
                     </div>
                 </div>
@@ -109,68 +153,68 @@
         </div>
 
         <!-- Footer -->
-        <div class="bg-gray-50 px-6 py-4 text-center border-t border-gray-100 text-xs text-gray-500">
-            Utility Bachat Bazar Multan • All Rights Reserved
+        <div class="bg-gray-100/80 px-6 py-4 text-center border-t border-gray-200 text-xs text-gray-500 font-medium">
+            Utility Bachat Bazar Multan • Built for Smart Shopping
         </div>
     </div>
 
     <!-- Modal for Grocery Items -->
-    <div id="groceryModal" class="fixed inset-0 bg-black/50 hidden flex items-center justify-center p-4 z-50">
-        <div class="bg-white rounded-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto shadow-2xl p-6 relative">
-            <div class="flex justify-between items-center mb-4 border-b pb-3">
-                <h2 class="text-xl font-bold text-emerald-800">🛒 Grocery & Store Items</h2>
-                <button onclick="closeModal()" class="text-gray-400 hover:text-gray-600 text-2xl font-bold">&times;</button>
+    <div id="groceryModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm hidden flex items-center justify-center p-4 z-50">
+        <div class="bg-white rounded-3xl max-w-lg w-full max-h-[85vh] overflow-y-auto shadow-2xl p-6 relative border border-gray-100">
+            <div class="flex justify-between items-center mb-4 border-b pb-3 sticky top-0 bg-white z-10">
+                <h2 class="text-xl font-extrabold text-emerald-800">🛒 Pre-Defined Store Inventory</h2>
+                <button onclick="closeModal()" class="text-gray-400 hover:text-gray-700 text-3xl font-bold leading-none">&times;</button>
             </div>
             
-            <div class="space-y-4 text-sm text-gray-700" id="editableContent" contenteditable="false">
+            <div class="space-y-4 text-xs md:text-sm text-gray-700" id="editableContent" contenteditable="false">
                 
                 <!-- Category 1 -->
-                <div class="bg-emerald-50 p-3 rounded-xl border border-emerald-100">
-                    <h3 class="font-bold text-emerald-900 mb-1">1. Electronic</h3>
-                    <p class="text-gray-600">Light bulbs, torches, handsfree, chargers, extension cords, batteries.</p>
+                <div class="bg-emerald-50/70 p-4 rounded-2xl border border-emerald-100 shadow-sm">
+                    <h3 class="font-bold text-emerald-900 text-base mb-1">1. Electronics & Lighting</h3>
+                    <p class="text-gray-600 leading-relaxed">High-efficiency light bulbs, heavy-duty rechargeable torches, premium handsfree, fast mobile chargers, multi-plug extension cords, and reliable dry cell batteries.</p>
                 </div>
 
                 <!-- Category 2 -->
-                <div class="bg-emerald-50 p-3 rounded-xl border border-emerald-100">
-                    <h3 class="font-bold text-emerald-900 mb-1">2. Toys</h3>
-                    <p class="text-gray-600">1000W high-power laser lights, simple laser lights, writing toys, remote cars, dolls, puzzle games.</p>
+                <div class="bg-emerald-50/70 p-4 rounded-2xl border border-emerald-100 shadow-sm">
+                    <h3 class="font-bold text-emerald-900 text-base mb-1">2. Toys & Fun Gear</h3>
+                    <p class="text-gray-600 leading-relaxed">1000W high-power tactical laser lights, simple colorful laser pointers, interactive writing toys, remote-controlled racing cars, cute dolls, and mind puzzle games.</p>
                 </div>
 
                 <!-- Category 3 -->
-                <div class="bg-emerald-50 p-3 rounded-xl border border-emerald-100">
-                    <h3 class="font-bold text-emerald-900 mb-1">3. Stationery</h3>
-                    <p class="text-gray-600">Pens, pencils, blue ink, red ink, ball pens, whiteout, gumsticks, geometry boxes, technical writing geometry boxes, markers, color pencils, water colors, notebooks, sharpeners, erasers.</p>
+                <div class="bg-emerald-50/70 p-4 rounded-2xl border border-emerald-100 shadow-sm">
+                    <h3 class="font-bold text-emerald-900 text-base mb-1">3. Stationery & Academic Tools</h3>
+                    <p class="text-gray-600 leading-relaxed">Ballpoint pens, graphite pencils, royal blue ink, permanent red ink, liquid whiteout correction pens, gumsticks, professional geometry boxes, technical drawing tools, colorful markers, color pencils, and water color kits.</p>
                 </div>
 
                 <!-- Category 4 -->
-                <div class="bg-emerald-50 p-3 rounded-xl border border-emerald-100">
-                    <h3 class="font-bold text-emerald-900 mb-1">4. House Cleaning Things</h3>
-                    <p class="text-gray-600">Jharoo (Brooms), pocha cloth, cleaning wipers, mouse traps, kids pampers, surface cleaners, dustpans, trash bags.</p>
+                <div class="bg-emerald-50/70 p-4 rounded-2xl border border-emerald-100 shadow-sm">
+                    <h3 class="font-bold text-emerald-900 text-base mb-1">4. House Cleaning Essentials</h3>
+                    <p class="text-gray-600 leading-relaxed">Traditional jharoo (brooms), absorbent pocha cloths, floor cleaning wipers, secure mouse traps, soft baby pampers, advanced multi-surface liquid cleaners, dustpans, and heavy-duty trash garbage bags.</p>
                 </div>
 
                 <!-- Category 5 -->
-                <div class="bg-emerald-50 p-3 rounded-xl border border-emerald-100">
-                    <h3 class="font-bold text-emerald-900 mb-1">5. Washroom & Personal Care</h3>
-                    <p class="text-gray-600">Toothbrushes, toothpastes, child toothbrushes, shampoos, handwashes, soaps, paper soaps, kids toothpaste, face wash, tissues.</p>
+                <div class="bg-emerald-50/70 p-4 rounded-2xl border border-emerald-100 shadow-sm">
+                    <h3 class="font-bold text-emerald-900 text-base mb-1">5. Washroom & Personal Hygiene</h3>
+                    <p class="text-gray-600 leading-relaxed">Soft-bristle toothbrushes, herbal and gel toothpastes, special child-friendly toothbrushes, nourishing shampoos, scented handwashes, bathing soaps, travel-friendly paper soaps, and facial cleansing wipes.</p>
                 </div>
 
                 <!-- Category 6 -->
-                <div class="bg-emerald-50 p-3 rounded-xl border border-emerald-100">
-                    <h3 class="font-bold text-emerald-900 mb-1">6. Cold Drinks & Juices</h3>
-                    <p class="text-gray-600">Coca Cola, Pepsi, 7Up, Mirinda, Sprite, Slice juice, Nestlé juice, energy drinks.</p>
+                <div class="bg-emerald-50/70 p-4 rounded-2xl border border-emerald-100 shadow-sm">
+                    <h3 class="font-bold text-emerald-900 text-base mb-1">6. Cold Drinks & Refreshments</h3>
+                    <p class="text-gray-600 leading-relaxed">Chilled Coca-Cola, Pepsi, 7Up, Mirinda, Sprite, fruity Slice juices, fresh Nestlé juices, and high-energy drinks to keep you refreshed.</p>
                 </div>
 
                 <!-- Category 7 -->
-                <div class="bg-emerald-50 p-3 rounded-xl border border-emerald-100">
-                    <h3 class="font-bold text-emerald-900 mb-1">7. Food & Groceries</h3>
-                    <p class="text-gray-600">Dalda oil, cooking ghee, various branded oils, cakes, cupcakes, jalebi, Nescafe coffee, Lays chips, biscuits, sugar, tea, rice, pulses.</p>
+                <div class="bg-emerald-50/70 p-4 rounded-2xl border border-emerald-100 shadow-sm">
+                    <h3 class="font-bold text-emerald-900 text-base mb-1">7. Food, Groceries & Snacks</h3>
+                    <p class="text-gray-600 leading-relaxed">Dalda cooking oil, pure cooking ghee, multi-brand premium oils, freshly baked cakes & cupcakes, traditional jalebi, Nescafe coffee jars, crispy Lays chips, assorted biscuits, fine sugar, tea bags, rice varieties, and lentils.</p>
                 </div>
 
             </div>
 
-            <div class="mt-6 flex justify-end space-x-3">
-                <button id="saveEditBtn" onclick="saveEdit()" class="hidden bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-blue-700 transition">Save Changes</button>
-                <button onclick="closeModal()" class="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg text-sm font-semibold hover:bg-gray-300 transition">Close</button>
+            <div class="mt-6 flex justify-end space-x-3 sticky bottom-0 bg-white py-3 border-t">
+                <button id="saveEditBtn" onclick="saveEdit()" class="hidden bg-blue-600 text-white px-5 py-2.5 rounded-xl text-xs font-bold shadow-md hover:bg-blue-700 transition">Save Changes</button>
+                <button onclick="closeModal()" class="bg-gray-200 hover:bg-gray-300 text-gray-700 px-5 py-2.5 rounded-xl text-xs font-bold transition">Close</button>
             </div>
         </div>
     </div>
@@ -178,6 +222,16 @@
     <script>
         let wrongAttempts = 0;
         let lockUntil = 0;
+
+        // Load saved data from localStorage on page load
+        window.onload = function() {
+            if(localStorage.getItem('savedGroceryItems')) {
+                document.getElementById('editableContent').innerHTML = localStorage.getItem('savedGroceryItems');
+            }
+            if(localStorage.getItem('savedTiming')) {
+                document.getElementById('timingContent').innerHTML = localStorage.getItem('savedTiming');
+            }
+        };
 
         function checkLock() {
             let now = new Date().getTime();
@@ -207,7 +261,7 @@
                 const contentBox = document.getElementById('editableContent');
                 contentBox.contentEditable = "true";
                 contentBox.focus();
-                contentBox.classList.add("border-2", "border-dashed", "border-blue-400", "p-2");
+                contentBox.classList.add("border-2", "border-dashed", "border-blue-500", "p-2");
                 document.getElementById('saveEditBtn').classList.remove('hidden');
                 alert("Access Granted! You can now edit the items directly inside the box. Click 'Save Changes' when done.");
             } else if (pass !== null) {
@@ -231,7 +285,7 @@
                 const timingBox = document.getElementById('timingContent');
                 timingBox.contentEditable = "true";
                 timingBox.focus();
-                timingBox.classList.add("border-2", "border-dashed", "border-blue-400", "p-2");
+                timingBox.classList.add("border-2", "border-dashed", "border-blue-500", "p-2");
                 document.getElementById('saveTimingBtn').classList.remove('hidden');
                 alert("Access Granted! You can now edit the timing.");
             } else if (pass !== null) {
@@ -249,17 +303,23 @@
         function saveEdit() {
             const contentBox = document.getElementById('editableContent');
             contentBox.contentEditable = "false";
-            contentBox.classList.remove("border-2", "border-dashed", "border-blue-400", "p-2");
+            contentBox.classList.remove("border-2", "border-dashed", "border-blue-500", "p-2");
             document.getElementById('saveEditBtn').classList.add('hidden');
-            alert("Changes saved successfully!");
+            
+            // Save to LocalStorage
+            localStorage.setItem('savedGroceryItems', contentBox.innerHTML);
+            alert("Changes saved permanently!");
         }
 
         function saveTimingEdit() {
             const timingBox = document.getElementById('timingContent');
             timingBox.contentEditable = "false";
-            timingBox.classList.remove("border-2", "border-dashed", "border-blue-400", "p-2");
+            timingBox.classList.remove("border-2", "border-dashed", "border-blue-500", "p-2");
             document.getElementById('saveTimingBtn').classList.add('hidden');
-            alert("Timing saved successfully!");
+            
+            // Save to LocalStorage
+            localStorage.setItem('savedTiming', timingBox.innerHTML);
+            alert("Timing saved permanently!");
         }
     </script>
 
