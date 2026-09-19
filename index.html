@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="ur" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Utility Bachat Bazar - Multan</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-emerald-50 to-teal-100 min-h-screen py-10 px-4">
+
+    <div class="max-w-2xl mx-auto bg-white rounded-2xl shadow-xl overflow-hidden border border-emerald-100 relative">
+        
+        <!-- Edit Buttons in Header -->
+        <div class="absolute top-4 right-4 flex items-center space-x-2 z-10">
+            <!-- Timing Edit Pencil -->
+            <button onclick="requestTimingEdit()" class="bg-emerald-700 hover:bg-emerald-800 text-white p-2.5 rounded-full shadow-md transition flex items-center justify-center" title="Edit Timing">
+                ⏱️✏️
+            </button>
+            <!-- Items Edit Pencil -->
+            <button onclick="requestEdit()" class="bg-emerald-700 hover:bg-emerald-800 text-white p-2.5 rounded-full shadow-md transition flex items-center justify-center" title="Edit Items">
+                ✏️
+            </button>
+        </div>
+
+        <!-- Header Section -->
+        <div class="bg-emerald-600 text-white p-6 text-center relative">
+            <h1 class="text-2xl md:text-3xl font-bold mb-1">Utility Bachat Bazar</h1>
+            <p class="text-emerald-100 text-sm md:text-base">بچت بازار - شاہ رکن عالم ٹاؤن، ملتان</p>
+            <span class="inline-block mt-3 bg-emerald-500 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-inner">
+                ⭐ 4.1 Rating (298+ Reviews)
+            </span>
+        </div>
+
+        <!-- Content Section -->
+        <div class="p-6 md:p-8 space-y-6">
+            
+            <!-- Address Card -->
+            <div class="flex items-start space-x-4 p-4 rounded-xl bg-gray-50 border border-gray-100">
+                <div class="bg-emerald-100 text-emerald-600 p-3 rounded-lg">
+                    📍
+                </div>
+                <div>
+                    <h3 class="font-semibold text-gray-800">Complete Address</h3>
+                    <p class="text-gray-600 text-sm mt-1">Piran Ghaib Rd, Shah Rukn E Alam Town, Multan (Postal Code: 60650)</p>
+                </div>
+            </div>
+
+            <!-- Contact Card -->
+            <div class="flex items-start space-x-4 p-4 rounded-xl bg-gray-50 border border-gray-100">
+                <div class="bg-emerald-100 text-emerald-600 p-3 rounded-lg">
+                    📞
+                </div>
+                <div>
+                    <h3 class="font-semibold text-gray-800">Phone Number</h3>
+                    <p class="text-gray-600 text-sm mt-1 font-medium text-emerald-700">0300 7532789</p>
+                </div>
+            </div>
+
+            <!-- Timing Card (Editable) -->
+            <div class="flex items-start space-x-4 p-4 rounded-xl bg-gray-50 border border-gray-100 relative">
+                <div class="bg-emerald-100 text-emerald-600 p-3 rounded-lg">
+                    ⏰
+                </div>
+                <div class="w-full">
+                    <h3 class="font-semibold text-gray-800">Opening Hours</h3>
+                    <div id="timingContent" contenteditable="false">
+                        <ul class="text-gray-600 text-sm mt-2 space-y-1">
+                            <li class="flex justify-between border-b pb-1">
+                                <span>Saturday – Thursday:</span>
+                                <span class="font-medium text-gray-800">8:00 AM – 10:00 PM</span>
+                            </li>
+                            <li class="flex justify-between pt-1">
+                                <span>Friday Break:</span>
+                                <span class="font-medium text-gray-800">8:00 AM – 1:00 PM & 3:00 PM – 10:00 PM</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <button id="saveTimingBtn" onclick="saveTimingEdit()" class="hidden mt-3 bg-blue-600 text-white px-3 py-1 rounded text-xs font-semibold hover:bg-blue-700 transition">Save Timing</button>
+                </div>
+            </div>
+
+            <!-- Features -->
+            <div>
+                <h3 class="font-semibold text-gray-800 mb-3">Available Facilities</h3>
+                <div class="grid grid-cols-2 gap-3">
+                    <div class="bg-emerald-50/60 p-3 rounded-lg text-sm text-emerald-800 font-medium flex items-center space-x-2">
+                        <span>🛒</span> <span>In-store Shopping</span>
+                    </div>
+                    <!-- Grocery Items Button -->
+                    <button onclick="openModal()" class="bg-emerald-600 hover:bg-emerald-700 text-white p-3 rounded-lg text-sm font-medium flex items-center justify-center space-x-2 transition shadow-sm cursor-pointer w-full">
+                        <span>🛍️</span> <span>Grocery Items</span>
+                    </button>
+                    <div class="bg-emerald-50/60 p-3 rounded-lg text-sm text-emerald-800 font-medium flex items-center space-x-2">
+                        <span>♿</span> <span>Wheelchair Accessible</span>
+                    </div>
+                    <div class="bg-emerald-50/60 p-3 rounded-lg text-sm text-emerald-800 font-medium flex items-center space-x-2">
+                        <span>✨</span> <span>Daily Essentials</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Footer -->
+        <div class="bg-gray-50 px-6 py-4 text-center border-t border-gray-100 text-xs text-gray-500">
+            Utility Bachat Bazar Multan • All Rights Reserved
+        </div>
+    </div>
+
+    <!-- Modal for Grocery Items -->
+    <div id="groceryModal" class="fixed inset-0 bg-black/50 hidden flex items-center justify-center p-4 z-50">
+        <div class="bg-white rounded-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto shadow-2xl p-6 relative">
+            <div class="flex justify-between items-center mb-4 border-b pb-3">
+                <h2 class="text-xl font-bold text-emerald-800">🛒 Grocery & Store Items</h2>
+                <button onclick="closeModal()" class="text-gray-400 hover:text-gray-600 text-2xl font-bold">&times;</button>
+            </div>
+            
+            <div class="space-y-4 text-sm text-gray-700" id="editableContent" contenteditable="false">
+                
+                <!-- Category 1 -->
+                <div class="bg-emerald-50 p-3 rounded-xl border border-emerald-100">
+                    <h3 class="font-bold text-emerald-900 mb-1">1. Electronic</h3>
+                    <p class="text-gray-600">Light bulbs, torches, handsfree, chargers, extension cords, batteries.</p>
+                </div>
+
+                <!-- Category 2 -->
+                <div class="bg-emerald-50 p-3 rounded-xl border border-emerald-100">
+                    <h3 class="font-bold text-emerald-900 mb-1">2. Toys</h3>
+                    <p class="text-gray-600">1000W high-power laser lights, simple laser lights, writing toys, remote cars, dolls, puzzle games.</p>
+                </div>
+
+                <!-- Category 3 -->
+                <div class="bg-emerald-50 p-3 rounded-xl border border-emerald-100">
+                    <h3 class="font-bold text-emerald-900 mb-1">3. Stationery</h3>
+                    <p class="text-gray-600">Pens, pencils, blue ink, red ink, ball pens, whiteout, gumsticks, geometry boxes, technical writing geometry boxes, markers, color pencils, water colors, notebooks, sharpeners, erasers.</p>
+                </div>
+
+                <!-- Category 4 -->
+                <div class="bg-emerald-50 p-3 rounded-xl border border-emerald-100">
+                    <h3 class="font-bold text-emerald-900 mb-1">4. House Cleaning Things</h3>
+                    <p class="text-gray-600">Jharoo (Brooms), pocha cloth, cleaning wipers, mouse traps, kids pampers, surface cleaners, dustpans, trash bags.</p>
+                </div>
+
+                <!-- Category 5 -->
+                <div class="bg-emerald-50 p-3 rounded-xl border border-emerald-100">
+                    <h3 class="font-bold text-emerald-900 mb-1">5. Washroom & Personal Care</h3>
+                    <p class="text-gray-600">Toothbrushes, toothpastes, child toothbrushes, shampoos, handwashes, soaps, paper soaps, kids toothpaste, face wash, tissues.</p>
+                </div>
+
+                <!-- Category 6 -->
+                <div class="bg-emerald-50 p-3 rounded-xl border border-emerald-100">
+                    <h3 class="font-bold text-emerald-900 mb-1">6. Cold Drinks & Juices</h3>
+                    <p class="text-gray-600">Coca Cola, Pepsi, 7Up, Mirinda, Sprite, Slice juice, Nestlé juice, energy drinks.</p>
+                </div>
+
+                <!-- Category 7 -->
+                <div class="bg-emerald-50 p-3 rounded-xl border border-emerald-100">
+                    <h3 class="font-bold text-emerald-900 mb-1">7. Food & Groceries</h3>
+                    <p class="text-gray-600">Dalda oil, cooking ghee, various branded oils, cakes, cupcakes, jalebi, Nescafe coffee, Lays chips, biscuits, sugar, tea, rice, pulses.</p>
+                </div>
+
+            </div>
+
+            <div class="mt-6 flex justify-end space-x-3">
+                <button id="saveEditBtn" onclick="saveEdit()" class="hidden bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-blue-700 transition">Save Changes</button>
+                <button onclick="closeModal()" class="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg text-sm font-semibold hover:bg-gray-300 transition">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let wrongAttempts = 0;
+        let lockUntil = 0;
+
+        function checkLock() {
+            let now = new Date().getTime();
+            if (now < lockUntil) {
+                let timeLeft = Math.ceil((lockUntil - now) / 1000);
+                alert("Too many incorrect attempts! Locked for " + timeLeft + " seconds.");
+                return true;
+            }
+            return false;
+        }
+
+        function openModal() {
+            document.getElementById('groceryModal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('groceryModal').classList.add('hidden');
+        }
+
+        function requestEdit() {
+            if (checkLock()) return;
+
+            let pass = prompt("Enter Password to Edit:");
+            if (pass === "1122") {
+                wrongAttempts = 0;
+                openModal();
+                const contentBox = document.getElementById('editableContent');
+                contentBox.contentEditable = "true";
+                contentBox.focus();
+                contentBox.classList.add("border-2", "border-dashed", "border-blue-400", "p-2");
+                document.getElementById('saveEditBtn').classList.remove('hidden');
+                alert("Access Granted! You can now edit the items directly inside the box. Click 'Save Changes' when done.");
+            } else if (pass !== null) {
+                wrongAttempts++;
+                if (wrongAttempts >= 3) {
+                    lockUntil = new Date().getTime() + 60000; // 1 minute lock
+                    wrongAttempts = 0;
+                    alert("Incorrect password 3 times! System is locked for 1 minute.");
+                } else {
+                    alert("Incorrect Password! Attempts left: " + (3 - wrongAttempts));
+                }
+            }
+        }
+
+        function requestTimingEdit() {
+            if (checkLock()) return;
+
+            let pass = prompt("Enter Password to Edit Timing:");
+            if (pass === "1122") {
+                wrongAttempts = 0;
+                const timingBox = document.getElementById('timingContent');
+                timingBox.contentEditable = "true";
+                timingBox.focus();
+                timingBox.classList.add("border-2", "border-dashed", "border-blue-400", "p-2");
+                document.getElementById('saveTimingBtn').classList.remove('hidden');
+                alert("Access Granted! You can now edit the timing.");
+            } else if (pass !== null) {
+                wrongAttempts++;
+                if (wrongAttempts >= 3) {
+                    lockUntil = new Date().getTime() + 60000;
+                    wrongAttempts = 0;
+                    alert("Incorrect password 3 times! System is locked for 1 minute.");
+                } else {
+                    alert("Incorrect Password! Attempts left: " + (3 - wrongAttempts));
+                }
+            }
+        }
+
+        function saveEdit() {
+            const contentBox = document.getElementById('editableContent');
+            contentBox.contentEditable = "false";
+            contentBox.classList.remove("border-2", "border-dashed", "border-blue-400", "p-2");
+            document.getElementById('saveEditBtn').classList.add('hidden');
+            alert("Changes saved successfully!");
+        }
+
+        function saveTimingEdit() {
+            const timingBox = document.getElementById('timingContent');
+            timingBox.contentEditable = "false";
+            timingBox.classList.remove("border-2", "border-dashed", "border-blue-400", "p-2");
+            document.getElementById('saveTimingBtn').classList.add('hidden');
+            alert("Timing saved successfully!");
+        }
+    </script>
+
+</body>
+</html>
