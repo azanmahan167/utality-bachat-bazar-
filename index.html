@@ -142,7 +142,7 @@
                     <button onclick="openModal()" class="bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white p-3.5 rounded-xl text-xs md:text-sm font-bold flex items-center justify-center space-x-2 transition shadow-md cursor-pointer w-full">
                         <span>🛍️</span> <span>Grocery & Items</span>
                     </button>
-                    <!-- Online Store Products Button (No Hint) -->
+                    <!-- Online Store Products Button -->
                     <button onclick="openProductModal()" class="bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-700 hover:to-blue-700 text-white p-3.5 rounded-xl text-xs md:text-sm font-bold flex items-center justify-center space-x-2 transition shadow-md cursor-pointer w-full col-span-2">
                         <span>📦</span> <span>Online Store Products</span>
                     </button>
@@ -166,7 +166,6 @@
                         <p class="text-gray-500 text-xs mt-0.5">Apna feedback seedha azanmahan167@gmail.com par bhejiye.</p>
                     </div>
                 </div>
-                <!-- Updated Formspree Action Link -->
                 <form action="https://formspree.io/f/mkjgongn" method="POST" class="space-y-3">
                     <div>
                         <input type="text" name="name" required class="w-full px-3 py-2 text-xs md:text-sm rounded-xl border border-gray-300 focus:outline-none focus:border-emerald-500" placeholder="Aap ka Naam...">
@@ -276,7 +275,7 @@
         </div>
     </div>
 
-    <!-- Modal for Online Store Products (No Hint on Add Button) -->
+    <!-- Modal for Online Store Products -->
     <div id="productModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm hidden flex items-center justify-center p-4 z-50">
         <div class="bg-white rounded-3xl max-w-lg w-full max-h-[85vh] overflow-y-auto shadow-2xl p-6 relative border border-gray-100">
             <div class="flex justify-between items-center mb-4 border-b pb-3 sticky top-0 bg-white z-10">
@@ -302,8 +301,11 @@
 
             <!-- Products Display Grid -->
             <div id="productsGrid" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <!-- Default Sample Product -->
-                <div class="bg-white p-3 rounded-2xl border border-gray-200 shadow-sm flex flex-col justify-between">
+                <!-- Default Sample Product with Delete Dustbin Button -->
+                <div class="bg-white p-3 rounded-2xl border border-gray-200 shadow-sm flex flex-col justify-between relative group">
+                    <button onclick="deleteProduct(this)" class="absolute top-2 right-2 bg-red-500 hover:bg-red-600 text-white w-7 h-7 rounded-full flex items-center justify-center text-xs shadow transition cursor-pointer" title="Delete Product">
+                        🗑️
+                    </button>
                     <div>
                         <img src="https://via.placeholder.com/300x200?text=Bachat+Bazar+Product" alt="Sample Product" class="w-full h-32 object-cover rounded-xl mb-2">
                         <h4 class="font-bold text-gray-800 text-sm">Special Cooking Oil</h4>
@@ -367,11 +369,11 @@
         function promptProductPassword() {
             if (checkLock()) return;
 
-            let pass = prompt("Enter Password to Add Product:");
+            let pass = prompt("Enter Password:");
             if (pass === "1122") {
                 wrongAttempts = 0;
                 document.getElementById('addProductSection').classList.remove('hidden');
-                alert("Access Granted! Fill the product details and picture below.");
+                alert("Access Granted!");
             } else if (pass !== null) {
                 wrongAttempts++;
                 if (wrongAttempts >= 3) {
@@ -379,7 +381,32 @@
                     wrongAttempts = 0;
                     alert("Incorrect password 3 times! System is locked for 1 minute.");
                 } else {
-                    alert("Incorrect Password! Attempts left: " + (3 - wrongAttempts));
+                    alert("Incorrect Password!");
+                }
+            }
+        }
+
+        function deleteProduct(buttonElement) {
+            if (checkLock()) return;
+
+            let pass = prompt("Enter Password:");
+            if (pass === "1122") {
+                wrongAttempts = 0;
+                let card = buttonElement.closest('div.bg-white');
+                if (card) {
+                    card.remove();
+                    let grid = document.getElementById('productsGrid');
+                    localStorage.setItem('savedProducts', grid.innerHTML);
+                    alert("Product deleted successfully!");
+                }
+            } else if (pass !== null) {
+                wrongAttempts++;
+                if (wrongAttempts >= 3) {
+                    lockUntil = new Date().getTime() + 60000;
+                    wrongAttempts = 0;
+                    alert("Incorrect password 3 times! System is locked for 1 minute.");
+                } else {
+                    alert("Incorrect Password!");
                 }
             }
         }
@@ -402,7 +429,6 @@
                 }
                 reader.readAsDataURL(imageInput.files[0]);
             } else {
-                // Default image if none uploaded
                 appendProductCard(name, price, "https://via.placeholder.com/300x200?text=Bachat+Bazar");
             }
         }
@@ -410,7 +436,10 @@
         function appendProductCard(name, price, imgSrc) {
             let grid = document.getElementById('productsGrid');
             let productHtml = `
-                <div class="bg-white p-3 rounded-2xl border border-gray-200 shadow-sm flex flex-col justify-between">
+                <div class="bg-white p-3 rounded-2xl border border-gray-200 shadow-sm flex flex-col justify-between relative group">
+                    <button onclick="deleteProduct(this)" class="absolute top-2 right-2 bg-red-500 hover:bg-red-600 text-white w-7 h-7 rounded-full flex items-center justify-center text-xs shadow transition cursor-pointer" title="Delete Product">
+                        🗑️
+                    </button>
                     <div>
                         <img src="${imgSrc}" alt="${name}" class="w-full h-32 object-cover rounded-xl mb-2">
                         <h4 class="font-bold text-gray-800 text-sm">${name}</h4>
@@ -421,10 +450,8 @@
             `;
             grid.insertAdjacentHTML('afterbegin', productHtml);
             
-            // Save to LocalStorage
             localStorage.setItem('savedProducts', grid.innerHTML);
 
-            // Clear inputs
             document.getElementById('prodName').value = '';
             document.getElementById('prodPrice').value = '';
             document.getElementById('prodImage').value = '';
@@ -435,7 +462,7 @@
         function requestEdit() {
             if (checkLock()) return;
 
-            let pass = prompt("Enter Password to Edit Inventory:");
+            let pass = prompt("Enter Password:");
             if (pass === "1122") {
                 wrongAttempts = 0;
                 openModal();
@@ -444,7 +471,7 @@
                 contentBox.focus();
                 contentBox.classList.add("border-2", "border-dashed", "border-blue-500", "p-2");
                 document.getElementById('saveEditBtn').classList.remove('hidden');
-                alert("Access Granted! You can now edit the items directly inside the box. Click 'Save Changes' when done.");
+                alert("Access Granted!");
             } else if (pass !== null) {
                 wrongAttempts++;
                 if (wrongAttempts >= 3) {
@@ -452,7 +479,7 @@
                     wrongAttempts = 0;
                     alert("Incorrect password 3 times! System is locked for 1 minute.");
                 } else {
-                    alert("Incorrect Password! Attempts left: " + (3 - wrongAttempts));
+                    alert("Incorrect Password!");
                 }
             }
         }
@@ -460,7 +487,7 @@
         function requestTimingEdit() {
             if (checkLock()) return;
 
-            let pass = prompt("Enter Password to Edit Timing:");
+            let pass = prompt("Enter Password:");
             if (pass === "1122") {
                 wrongAttempts = 0;
                 const timingBox = document.getElementById('timingContent');
@@ -468,7 +495,7 @@
                 timingBox.focus();
                 timingBox.classList.add("border-2", "border-dashed", "border-blue-500", "p-2");
                 document.getElementById('saveTimingBtn').classList.remove('hidden');
-                alert("Access Granted! You can now edit the timing.");
+                alert("Access Granted!");
             } else if (pass !== null) {
                 wrongAttempts++;
                 if (wrongAttempts >= 3) {
@@ -476,7 +503,7 @@
                     wrongAttempts = 0;
                     alert("Incorrect password 3 times! System is locked for 1 minute.");
                 } else {
-                    alert("Incorrect Password! Attempts left: " + (3 - wrongAttempts));
+                    alert("Incorrect Password!");
                 }
             }
         }
